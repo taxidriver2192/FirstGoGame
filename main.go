@@ -1,11 +1,13 @@
 package main
 
-import (
-	"golang.org/x/tools/go/analysis/passes/nilfunc"
-)
+import "github.com/hajimehoshi/ebiten/v2"
 
 type Game struct{}
 
+const (
+	screenWidth  = 512
+	screenHeight = 512
+)
 
 func (g *Game) Update() error {
 	// Update the logical stage
@@ -16,16 +18,13 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	// Render the screen
 }
 
-func (g *Game) Layout(
-	outsideWidth, outsideHeight, int)
-	(screenWidth, screenHeight, int) {
-		// Return the game screen size
-		return 128, 128
-	}
-)
+func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
+	// Return the game screen size
+	return screenWidth, screenHeight
+}
 
 func main() {
-	ebiten.SetWindowSize(128, 128)
+	ebiten.SetWindowSize(screenWidth, screenHeight)
 	ebiten.SetWindowTitle("Snake")
 	game := &Game{}
 	if err := ebiten.RunGame(game); err != nil {
