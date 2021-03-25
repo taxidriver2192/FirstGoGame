@@ -10,6 +10,10 @@ const (
 	screenHeight = 512
 )
 
+var (
+	White = Gray16{0xffff}
+)
+
 func (g *Game) Update() error {
 	// Update the logical stage
 	return nil
