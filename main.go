@@ -4,6 +4,7 @@ import "github.com/hajimehoshi/ebiten/v2"
 
 type Game struct{}
 
+// Create constants we can use continuously
 const (
 	screenWidth  = 512
 	screenHeight = 512
